@@ -20,9 +20,9 @@ var commentRoutes    = require("./routes/comments"),
     
     
 
+var url = process.env.DATABASEURL || "mongodb://localhost/yelp_camp"
+mongoose.connect(url);
 
-mongoose.connect(process.env.DATABASEURL);
-// mongoose.connect("mongodb://Andrea:Texas123@ds215380.mlab.com:15380/sanchez_yelpcamp");
 
 
 
@@ -32,7 +32,7 @@ app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
 app.use(flash());
 
-seedDB(); // seed the database
+// seedDB(); // seed the database
 
 //PASSPORT Config
 app.use(require("express-session")({
